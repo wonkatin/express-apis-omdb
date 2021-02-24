@@ -195,7 +195,8 @@ there is an omdbID. In the rendered HTML for `/results`, have each movie link to
 # Bonuses 
 
 * Add stars images to reflect the imdb ratings
-* Add an error page that renders when a route has a problem and a 404 page that renders when a route isn't found
+* Add an error page that renders when a route has a problem 
+* add a 404 page that renders when a route isn't found
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
 
 ## Saving Faves Super Bonus

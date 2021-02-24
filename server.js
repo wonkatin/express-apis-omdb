@@ -26,27 +26,36 @@ app.use(express.urlencoded({ extended: false }))
 // Adds some logging to each request
 app.use(require('morgan')('dev'))
 
-// Routes
+// GET / - render search form
 app.get('/', (req, res) => {
-  res.render('index.ejs')
+    res.render('index.ejs')
 })
 
+//  GET /results - render results of omdb search
 app.get('/results', async (req, res) => {
   try{
     const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
     res.render('results', { movies: results.data.Search })
   } catch (error) {
     console.log(error)
+    res.status(500).render('error.ejs')
   }
 })
 
+//  GET /detail/:movie_id - render detail of one movie omdb search
 app.get('/detail/:movie_id', async (req, res) => {
   try {
     const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${req.params.movie_id}`)
     res.render('detail', { movie: results.data })
   } catch (error) {
     console.log(error)
+    res.status(500).render('error.ejs')
   }
+})
+
+// 404 middleware
+app.use((req, res, next) => {
+  res.status(404).render('404.ejs')
 })
 
 app.listen(PORT, () => {
