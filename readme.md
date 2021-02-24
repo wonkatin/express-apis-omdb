@@ -1,3 +1,12 @@
+learning goals: 
+api keys
+api calls from backend
+enviromental config
+app planning/user stories practice
+views practice
+
+middleware -- possible to touch on with 404 page bonus?
+
 steps (we do)
 * create testOMDB.js
 * npm i axios
@@ -63,9 +72,9 @@ bonus
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API. You will need a key. Go to the site to register for a free one. Keep API keys out of public repos!
 
 ## Pre-reqs
-* axios
+* axios - in we do
 * node/express/ejs/express-ejs-layouts
-* forms in full-stack
+* forms in full-stack GET action/query params?
 
 ## Getting Started
 
@@ -199,7 +208,7 @@ there is an omdbID. In the rendered HTML for `/results`, have each movie link to
 * add a 404 page that renders when a route isn't found
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
 
-## Saving Faves Super Bonus
+## Saving Faves Super Duper Bonus
 
 ### User Stories
 * [] As a user, I want to save movies from my search results to a list of my faves.
