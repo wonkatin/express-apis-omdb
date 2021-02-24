@@ -36,8 +36,9 @@ app.get('/results', async (req, res) => {
   res.json({ movieData: results.data })
 })
 
-app.get('/details/:movie_id', (req, res) => {
-  res.json({ msg: 'show movie details'})
+app.get('/detail/:movie_id', async (req, res) => {
+  const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${req.params.movie_id}`)
+  res.json({ movieDetails: results.data })
 })
 
 
