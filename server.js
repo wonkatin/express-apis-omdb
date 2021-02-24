@@ -28,7 +28,7 @@ app.use(require('morgan')('dev'))
 
 // Routes
 app.get('/', (req, res) => {
-  res.json({ msg: 'show form' })
+  res.render('index.ejs')
 })
 
 app.get('/results', async (req, res) => {

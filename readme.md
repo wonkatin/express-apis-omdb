@@ -93,7 +93,27 @@ You have been provided with four `.ejs` files in your folder.
 
 ### Part 1: Plan your app
 
-Consider the user stories and plan out the routes you will need. What routes will render pages for the user and what routes be an endpoint that redirects?
+Consider the user stories and plan out the routes you will need. How will the form submit data? How will you get the details or one specific movie?
+
+Remember, you can submit an html form with an HTTP action of `GET` and the input's `name` attributes will be used as *request query parameters* 
+
+this form:
+
+```html
+<form action="/resource" method="GET">
+  <input type="text" name="search_term" />  
+
+  <input type="submit" />
+</form>
+```
+
+will result in this URL:
+
+`/resource?search_term=my+search`
+
+where `/resource` is the route, `search_term` is the query parameter, and `my+search` is what was typed into the input when the form was submitted.
+
+you could log this on your backend route with `console.log(req.query.search_term)`
 
 <details>
   <summary>Help! How do I turn user stories into features?</summary>
