@@ -33,12 +33,12 @@ app.get('/', (req, res) => {
 
 app.get('/results', async (req, res) => {
   const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
-  res.json({ movieData: results.data })
+  res.render('results', { movies: results.data.Search })
 })
 
 app.get('/detail/:movie_id', async (req, res) => {
   const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${req.params.movie_id}`)
-  res.json({ movieDetails: results.data })
+  res.json({ movie: results.data })
 })
 
 

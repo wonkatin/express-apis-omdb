@@ -190,7 +190,7 @@ there is an omdbID. In the rendered HTML for `/results`, have each movie link to
 
 # Bonuses 
 
-* Add stars images to reflect the movie_id ratings
+* Add stars images to reflect the imdb ratings
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
 
 ## Saving Faves Bonus
