@@ -1,3 +1,56 @@
+steps (we do)
+* create testOMDB.js
+* npm i axios
+* hit the api endpoint
+
+```js
+// require axios
+const axios = require('axios')
+
+axios.get(url)
+.then(results => {
+  console.log(results.data)
+})
+
+async function hitOmdb() {
+  const results = await axios.get(url)
+  console.log(results.data)
+}
+
+hitOmdb()
+```
+
+* install dotenv
+* create .env and add api key
+* add .env to the .gitignore
+* console log process.env.OMDB_API_KEY
+* refactor to use the api key as an envrimental variable
+```js
+// configure enviromental variables
+require('dotenv').config()
+const OMDB_API_KEY = process.env.OMDB_API_KEY
+```
+* put axios in a route and hit it with postman
+  * require the stuff in server and async the route
+```js
+// require axios
+const axios = require('axios')
+
+require('dotenv').config()
+const OMDB_API_KEY = process.env.OMDB_API_KEY
+```
+* hit route with postman
+* add query params to route/req.query.params
+* change route to not be index anymore (so the lab launch is less confusing)
+
+you do:
+* stub routes
+* make views
+
+bonus 
+* style
+* add DB for faves
+
 # Express with APIs - OMDB
 
 We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a public movie API. You will need a key. Go to the site to register for a free one. Keep API keys out of public repos!
@@ -16,9 +69,56 @@ We'll be creating an app that connects to [OMDB](http://www.omdbapi.com), a publ
 # Part 1: Search
 
 ## User Stories
-1. As a user, I want to go to a home page to search a database full of movies.
-2. As a user, I want to see movie results based on my search query.
-3. As a user, I want to pick a movie result and see detailed information about the movie.
+
+* [] As a user, I want to go to a home page to search for movies.
+* [] As a user, I want to see movie results based on my search query.
+* [] As a user, I want to pick a movie result and see detailed information about the movie.
+
+---
+
+## Steps to Achieve
+
+First, review the project folder:
+
+You have been provided with four `.ejs` files in your folder. 
+  * `index.ejs` to show a search form
+  * `results.ejs` to show the OMDB search data 
+  * `detail.ejs` to show the details about one movie
+  * `layout.ejs` to for your page layouts
+
+`server.js` already has the ejs template engine and layouts setup.
+
+### Part 1: Plan your app
+
+Consider the user stories and plan out the routes you will need. What routes will render pages for the user and what routes be an endpoint that redirects?
+
+<details>
+  <summary>Help! How do I turn user stories into features?</summary>
+
+  <!-- todo add something here -->
+
+</details>
+
+Plan out each route you will need along with the HTTP request verb and what the response will be.
+
+<details>
+  <summary>Wait! What routes do I need?</summary>
+
+  <!-- todo add something here -->
+
+</details>
+
+### Part 2: Stub those routes!
+
+write a simple route stub for each of your routes to test the functionality. 
+
+### Part 3: Build your route stubs!
+
+Build out the functionality of each route one by one, and test with postman to verify that everything is working correctly.
+
+### Part 4: Render yoru views!
+
+Build the functionality of each ejs view one by one and reconfigure the the corresponding route to render it. Test that your view works correctly before moving on to the next one!
 
 ## Requirements
 1. On your home page, create a form. The form will ask for the user to input a movie title.
@@ -64,8 +164,8 @@ to a route like `/movies/tt234323` (where `tt234323` is the IMDBid for that movi
 # Part 2: Saving Faves
 
 ## User Stories
-1. As a user, I want to save movies from my search results to a list of my faves.
-2. As a user, I want to perform this action from the movie detail page.
+* [] As a user, I want to save movies from my search results to a list of my faves.
+* [] As a user, I want to perform this action from the movie detail page.
 
 ## Steps to Achieve
 1. Install the new node modules needed for database access.
@@ -84,8 +184,6 @@ to a route like `/movies/tt234323` (where `tt234323` is the IMDBid for that movi
 9. Write your GET route for `/faves`:
   * Use the fave model to get all faves from your database.
   * In the callback, use `res.render` to render all your faves to a page named `faves.ejs` (not provided).
-
----
 
 ## Licensing
 1. All content is licensed under a CC-BY-NC-SA 4.0 license.
