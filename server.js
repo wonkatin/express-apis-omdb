@@ -32,15 +32,22 @@ app.get('/', (req, res) => {
 })
 
 app.get('/results', async (req, res) => {
-  const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
-  res.render('results', { movies: results.data.Search })
+  try{
+    const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
+    res.render('results', { movies: results.data.Search })
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 app.get('/detail/:movie_id', async (req, res) => {
-  const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${req.params.movie_id}`)
-  res.json({ movie: results.data })
+  try {
+    const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${req.params.movie_id}`)
+    res.render('detail', { movie: results.data })
+  } catch (error) {
+    console.log(error)
+  }
 })
-
 
 app.listen(PORT, () => {
   console.log(`listening on PORT:${PORT}`)

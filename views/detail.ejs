@@ -1,0 +1,12 @@
+<h1><%= movie.Title %></h1>
+<p><%= movie.Genre %></p>
+<h3><%= movie.Year %></h3>
+<h5><%= movie.Rated %></h5>
+<h1>
+<% const rating = parseInt(movie.imdbRating) 
+for(let i = 0; i < rating; i++) { %>
+  ⭐️
+<% } %>
+</h1>
+<img src="<%= movie.Poster %>" width=600px />
+

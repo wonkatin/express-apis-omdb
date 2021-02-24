@@ -14,8 +14,12 @@ axios.get(url)
 })
 
 async function hitOmdb() {
-  const results = await axios.get(url)
-  console.log(results.data)
+  try {
+    const results = await axios.get(url)
+    console.log(results.data)
+  } catch(error) {
+    console.log(error)
+  }
 }
 
 hitOmdb()
@@ -191,9 +195,10 @@ there is an omdbID. In the rendered HTML for `/results`, have each movie link to
 # Bonuses 
 
 * Add stars images to reflect the imdb ratings
+* Add an error page that renders when a route has a problem and a 404 page that renders when a route isn't found
 * Figure out what parameters are need to access the Rotten Tomato information, and display that information to the page
 
-## Saving Faves Bonus
+## Saving Faves Super Bonus
 
 ### User Stories
 * [] As a user, I want to save movies from my search results to a list of my faves.
