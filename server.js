@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
 })
 
 // The app.listen function returns a server handle
-var server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`listening on PORT:${PORT}`)
   rowdyResults.print()
 })
