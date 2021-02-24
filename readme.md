@@ -8,6 +8,12 @@ views practice
 middleware -- possible to touch on with 404 page bonus?
 
 steps (we do)
+checkout omdb:
+* get omdb api keys
+* hit omdb in postman
+* look at api docs for imbd search query
+* get the id from a search and rehit the api with it
+checkout axios:
 * create testOMDB.js
 * npm i axios
 * hit the api endpoint
@@ -44,7 +50,7 @@ hitOmdb()
 require('dotenv').config()
 const OMDB_API_KEY = process.env.OMDB_API_KEY
 ```
-* put axios in a route and hit it with postman
+* put axios in a route (not /) and hit it with postman
   * require the stuff in server and async the route
 ```js
 // require axios
