@@ -27,13 +27,21 @@ app.use(express.urlencoded({ extended: false }))
 app.use(require('morgan')('dev'))
 
 // Routes
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
+  res.json({ msg: 'show form' })
+})
+
+app.get('/results', async (req, res) => {
   const results = await axios.get(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${req.query.search}`)
   res.json({ movieData: results.data })
 })
 
-// The app.listen function returns a server handle
-var server = app.listen(PORT, () => {
+app.get('/details/:movie_id', (req, res) => {
+  res.json({ msg: 'show movie details'})
+})
+
+
+app.listen(PORT, () => {
   console.log(`listening on PORT:${PORT}`)
   rowdyResults.print()
 })
